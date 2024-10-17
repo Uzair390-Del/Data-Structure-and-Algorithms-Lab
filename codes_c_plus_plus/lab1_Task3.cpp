@@ -1,3 +1,4 @@
+// find the largest and smallest in an array
 #include <iostream>
 using namespace std;
 
@@ -34,6 +35,6 @@ int main() {
     // Output the largest and smallest values
     cout << "Largest value: " << largest << endl;
     cout << "Smallest value: " << smallest << endl;
-
+ 
     return 0;
 }
