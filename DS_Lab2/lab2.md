@@ -338,6 +338,7 @@ int main() {
 
     return 0;
 }
+```
 
 ## Dry Run: Linear Search in C++
 
@@ -452,6 +453,7 @@ int main() {
 
     return 0;
 }
+```
 
 # Dry Run: Array Reversal in C++
 
@@ -508,8 +510,9 @@ We are reversing an array in place using two pointers, `start` and `end`. The pr
 ### Summary:
 The array has been successfully reversed in place from `{1, 2, 3, 4, 5}` to `{5, 4, 3, 2, 1}` using two pointers (`start` and `end`).
 
+# Task 6: insertion, deletion 
 
-
+# Task 7:Binary search 
 
 
 
