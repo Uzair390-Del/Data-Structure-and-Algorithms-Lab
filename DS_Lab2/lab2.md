@@ -156,13 +156,16 @@ The loop completes, and the program outputs:
 - The largest number in the array `{5, 2, 9, 3, 7}` is 9.
 - The smallest number in the array is 2.
 
+# Task 3: Print the Index of the Smallest and Largest Value
 
+## Code Explanation:
+This program takes an array of integers from the user, finds the largest and smallest values, and prints their values and respective indices.
 
+---
 
-### Code:
-
+### C++ Code:
 ```cpp
-// Find the largest and smallest in an array
+// Print the index of the smallest and largest value
 #include <iostream>
 using namespace std;
 
@@ -183,23 +186,110 @@ int main() {
     }
 
     // Initialize smallest and largest with the first element of the array
-    int largest = arr[0];
-    int smallest = arr[0];
+    int largest = arr[0], smallest = arr[0];
+    int largestIndex = 0, smallestIndex = 0;
 
-    // Loop through the array to find the largest and smallest values
+    // Loop through the array to find the largest and smallest values with their indices
     for(int i = 1; i < n; i++) {
         if(arr[i] > largest) {
             largest = arr[i];
+            largestIndex = i; // Update the index of the largest element
         }
         if(arr[i] < smallest) {
             smallest = arr[i];
+            smallestIndex = i; // Update the index of the smallest element
         }
     }
 
-    // Output the largest and smallest values
-    cout << "Largest value: " << largest << endl;
-    cout << "Smallest value: " << smallest << endl;
+    // Output the largest and smallest values along with their indices
+    cout << "Largest value: " << largest << " at index " << largestIndex << endl;
+    cout << "Smallest value: " << smallest << " at index " << smallestIndex << endl;
 
     return 0;
 }
-```
+
+# Dry Run: Finding the Largest and Smallest Values with their Indices
+
+### Problem:
+The program will find the largest and smallest values in an array of integers and print their values along with their respective indices.
+
+---
+
+### Input:
+- Suppose the user inputs an array of 5 integers: **{12, 5, 23, 3, 15}**.
+
+---
+
+### Dry Run:
+
+#### **Step 1: Initialization**
+- The program prompts the user to enter the number of elements, say `n = 5`.
+- An array `arr[]` of size 5 is created to store the integers.
+
+#### **Step 2: Input Phase**
+- The user enters the elements: **12, 5, 23, 3, 15**.
+- Now the array looks like this: `arr[] = {12, 5, 23, 3, 15}`.
+
+#### **Step 3: Initialize `largest`, `smallest`, and their indices**
+- Both `largest` and `smallest` are initialized to the first element of the array (`arr[0] = 12`).
+- The indices `largestIndex` and `smallestIndex` are set to `0`.
+  
+**State after initialization:**
+- `largest = 12`
+- `smallest = 12`
+- `largestIndex = 0`
+- `smallestIndex = 0`
+
+#### **Step 4: Iteration 1 (i = 1)**
+- Compare `arr[1] = 5` with `largest` and `smallest`.
+- Since `5` is smaller than `smallest`, update `smallest = 5` and `smallestIndex = 1`.
+- No change to `largest`.
+
+**State after iteration 1:**
+- `largest = 12`
+- `smallest = 5`
+- `largestIndex = 0`
+- `smallestIndex = 1`
+
+#### **Step 5: Iteration 2 (i = 2)**
+- Compare `arr[2] = 23` with `largest`.
+- Since `23` is greater than `largest`, update `largest = 23` and `largestIndex = 2`.
+- No change to `smallest`.
+
+**State after iteration 2:**
+- `largest = 23`
+- `smallest = 5`
+- `largestIndex = 2`
+- `smallestIndex = 1`
+
+#### **Step 6: Iteration 3 (i = 3)**
+- Compare `arr[3] = 3` with `smallest`.
+- Since `3` is smaller than `smallest`, update `smallest = 3` and `smallestIndex = 3`.
+- No change to `largest`.
+
+**State after iteration 3:**
+- `largest = 23`
+- `smallest = 3`
+- `largestIndex = 2`
+- `smallestIndex = 3`
+
+#### **Step 7: Iteration 4 (i = 4)**
+- Compare `arr[4] = 15` with `largest` and `smallest`.
+- No changes to `largest` or `smallest`.
+
+**Final State:**
+- `largest = 23`
+- `smallest = 3`
+- `largestIndex = 2`
+- `smallestIndex = 3`
+
+---
+
+### Final Output:
+- **Largest value: 23 at index 2**
+- **Smallest value: 3 at index 3**
+
+
+
+
+
