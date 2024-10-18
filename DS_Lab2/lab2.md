@@ -208,7 +208,7 @@ int main() {
     return 0;
 }
 
-# Dry Run: Finding the Largest and Smallest Values with their Indices
+## Dry Run: Finding the Largest and Smallest Values with their Indices
 
 ### Problem:
 The program will find the largest and smallest values in an array of integers and print their values along with their respective indices.
@@ -288,6 +288,227 @@ The program will find the largest and smallest values in an array of integers an
 ### Final Output:
 - **Largest value: 23 at index 2**
 - **Smallest value: 3 at index 3**
+
+# Task 4: Linear Search 
+
+# Linear Search in C++
+
+```cpp
+#include <iostream>
+using namespace std;
+
+int linearSearch(int arr[], int n, int target) {
+    // Traverse the array
+    for (int i = 0; i < n; i++) {
+        if (arr[i] == target) {
+            return i; // Return the index if the element is found
+        }
+    }
+    return -1; // Return -1 if the element is not found
+}
+
+int main() {
+    int n, target;
+
+    // Input the number of elements in the array
+    cout << "Enter the number of elements: ";
+    cin >> n;
+
+    int arr[n];
+
+    // Input the array elements
+    cout << "Enter the elements: " << endl;
+    for (int i = 0; i < n; i++) {
+        cin >> arr[i];
+    }
+
+    // Input the target value to search for
+    cout << "Enter the value to search: ";
+    cin >> target;
+
+    // Perform linear search
+    int result = linearSearch(arr, n, target);
+
+    // Output the result
+    if (result != -1) {
+        cout << "Element found at index " << result << endl;
+    } else {
+        cout << "Element not found in the array" << endl;
+    }
+
+    return 0;
+}
+
+## Dry Run: Linear Search in C++
+
+### Problem:
+We are performing a linear search to find a target element in an array and return its index if found. If the target element is not found, the program will return `-1`.
+
+---
+
+### Input:
+- Suppose the user inputs an array of 5 integers: **{10, 25, 30, 45, 50}**.
+- The target element to search is: **30**.
+
+---
+
+### Dry Run:
+
+#### **Step 1: Initialization**
+- The program prompts the user to enter the number of elements, say `n = 5`.
+- An array `arr[]` of size 5 is created.
+
+#### **Step 2: Input Phase**
+- The user enters the elements: **10, 25, 30, 45, 50**.
+- Now the array looks like this: `arr[] = {10, 25, 30, 45, 50}`.
+- The target value to search for is `30`.
+
+#### **Step 3: Perform Linear Search**
+
+- The program starts iterating through the array to find the target value.
+  
+#### **Iteration 1 (i = 0):**
+- **arr[0] = 10**, which is not equal to `30`.
+- Move to the next iteration.
+
+#### **Iteration 2 (i = 1):**
+- **arr[1] = 25**, which is not equal to `30`.
+- Move to the next iteration.
+
+#### **Iteration 3 (i = 2):**
+- **arr[2] = 30**, which is equal to the target value `30`.
+- The program returns the index `2`.
+
+---
+
+### Final Output:
+- The program outputs: **"Element found at index 2"**.
+
+---
+
+### Example 2: Target not found
+- **Input Array:** `{5, 8, 12, 16, 20}`
+- **Target:** `18`
+
+#### **Step 1: Initialization**
+- The user inputs `n = 5` and the array `arr[] = {5, 8, 12, 16, 20}`.
+- The target is `18`.
+
+#### **Step 2: Perform Linear Search**
+
+- **Iteration 1 (i = 0):** `arr[0] = 5` (not equal to 18).
+- **Iteration 2 (i = 1):** `arr[1] = 8` (not equal to 18).
+- **Iteration 3 (i = 2):** `arr[2] = 12` (not equal to 18).
+- **Iteration 4 (i = 3):** `arr[3] = 16` (not equal to 18).
+- **Iteration 5 (i = 4):** `arr[4] = 20` (not equal to 18).
+
+Since the element is not found in the array, the program returns `-1`.
+
+---
+
+### Final Output:
+- The program outputs: **"Element not found in the array"**.
+
+# Task 5: Reverse and array 
+
+
+```cpp
+#include <iostream>
+using namespace std;
+
+int main() {
+    int n;
+
+    // Input the number of elements in the array
+    cout << "Enter the number of elements: ";
+    cin >> n;
+
+    int arr[n];
+
+    // Input the array elements
+    cout << "Enter the elements: ";
+    for (int i = 0; i < n; i++) {
+        cin >> arr[i];
+    }
+
+    // Initialize start and end pointers
+    int start = 0;
+    int end = n - 1;
+
+    // Reverse the array using start and end variables
+    while (start < end) {
+        // Swap the elements at start and end
+        swap(arr[start], arr[end]);
+        start++;  // Move the start pointer forward
+        end--;    // Move the end pointer backward
+    }
+
+    // Output the reversed array
+    cout << "Reversed array: ";
+    for (int i = 0; i < n; i++) {
+        cout << arr[i] << " ";
+    }
+    cout << endl;
+
+    return 0;
+}
+
+# Dry Run: Array Reversal in C++
+
+### Problem:
+We are reversing an array in place using two pointers, `start` and `end`. The program will swap the elements until the `start` pointer is no longer less than the `end` pointer.
+
+---
+
+### Input:
+- Suppose the user inputs an array of 5 integers: **{1, 2, 3, 4, 5}**.
+
+---
+
+### Dry Run:
+
+#### **Step 1: Initialization**
+- The program prompts the user to enter the number of elements, say `n = 5`.
+- An array `arr[]` of size 5 is created.
+
+#### **Step 2: Input Phase**
+- The user enters the elements: **1, 2, 3, 4, 5**.
+- Now the array looks like this: `arr[] = {1, 2, 3, 4, 5}`.
+
+#### **Step 3: Initialize Pointers**
+- Initialize `start = 0` and `end = 4` (since `n - 1 = 4`).
+
+#### **Step 4: Reverse the Array Using While Loop**
+
+- The program starts the while loop, checking if `start < end`.
+
+#### **Iteration 1:**
+- Condition: `start < end` (0 < 4) is **true**.
+- Swap `arr[start]` (1) with `arr[end]` (5).
+- After swap: `arr[] = {5, 2, 3, 4, 1}`.
+- Update pointers: `start = 1`, `end = 3`.
+
+#### **Iteration 2:**
+- Condition: `start < end` (1 < 3) is **true**.
+- Swap `arr[start]` (2) with `arr[end]` (4).
+- After swap: `arr[] = {5, 4, 3, 2, 1}`.
+- Update pointers: `start = 2`, `end = 2`.
+
+#### **Iteration 3:**
+- Condition: `start < end` (2 < 2) is **false**.
+- Exit the loop.
+
+---
+
+### Final Output:
+- The program outputs: **"Reversed array: 5 4 3 2 1"**.
+
+--- 
+
+### Summary:
+The array has been successfully reversed in place from `{1, 2, 3, 4, 5}` to `{5, 4, 3, 2, 1}` using two pointers (`start` and `end`).
+
+
 
 
 
