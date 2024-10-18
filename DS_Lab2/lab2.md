@@ -207,7 +207,7 @@ int main() {
 
     return 0;
 }
-
+```
 ## Dry Run: Finding the Largest and Smallest Values with their Indices
 
 ### Problem:
