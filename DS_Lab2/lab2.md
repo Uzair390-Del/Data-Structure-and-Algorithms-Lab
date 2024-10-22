@@ -510,9 +510,344 @@ We are reversing an array in place using two pointers, `start` and `end`. The pr
 ### Summary:
 The array has been successfully reversed in place from `{1, 2, 3, 4, 5}` to `{5, 4, 3, 2, 1}` using two pointers (`start` and `end`).
 
-# Task 6: insertion, deletion 
+# Task 6: insertion, deletion and retrieval from an array
+```cpp
+#include <iostream>
+using namespace std;
+
+void insert(int arr[], int &size, int element, int index) {
+    if (index > size || index < 0) {
+        cout << "Invalid index" << endl;
+        return;
+    }
+    // Shift elements to the right to make space for new element
+    for (int i = size; i > index; i--) {
+        arr[i] = arr[i - 1];
+    }
+    arr[index] = element;
+    size++;
+}
+
+void deleteElement(int arr[], int &size, int index) {
+    if (index >= size || index < 0) {
+        cout << "Invalid index" << endl;
+        return;
+    }
+    // Shift elements to the left to fill the gap
+    for (int i = index; i < size - 1; i++) {
+        arr[i] = arr[i + 1];
+    }
+    size--;
+}
+
+void retrieve(int arr[], int size, int index) {
+    if (index >= size || index < 0) {
+        cout << "Invalid index" << endl;
+        return;
+    }
+    cout << "Element at index " << index << " is: " << arr[index] << endl;
+}
+
+void displayArray(int arr[], int size) {
+    for (int i = 0; i < size; i++) {
+        cout << arr[i] << " ";
+    }
+    cout << endl;
+}
+
+int main() {
+    int arr[100], size = 0;
+    
+    // Initial insertion
+    insert(arr, size, 10, 0); // Insert 10 at index 0
+    insert(arr, size, 20, 1); // Insert 20 at index 1
+    insert(arr, size, 30, 2); // Insert 30 at index 2
+    
+    cout << "Array after insertions: ";
+    displayArray(arr, size);
+    
+    // Deletion
+    deleteElement(arr, size, 1); // Delete element at index 1
+    cout << "Array after deletion at index 1: ";
+    displayArray(arr, size);
+    
+    // Retrieval
+    retrieve(arr, size, 1); // Retrieve element at index 1
+    
+    return 0;
+}
+```
+
+## Dry Run: Array Insertion, Deletion, and Retrieval
+
+### Problem:
+The program will perform three operations on an array:
+1. Insert an element at a specific index.
+2. Delete an element from a specific index.
+3. Retrieve and print an element at a specific index.
+
+---
+
+### Input:
+- The initial array is empty.
+- We will perform the following operations:
+  - Insert elements: **10**, **20**, and **30**.
+  - Delete the element at index 1.
+  - Retrieve and print the element at index 1.
+
+---
+
+### Dry Run:
+
+#### **Step 1: Initialization**
+- The program starts with an empty array `arr[]` and `size = 0`.
+  
+**State after initialization:**
+- `arr[] = {}`
+- `size = 0`
+
+---
+
+#### **Step 2: Insert 10 at index 0**
+- Before Insertion:
+  - `arr[] = {}`
+  - `size = 0`
+- Operation: Insert **10** at index **0**.
+  - The array is updated to: `arr[] = {10}`.
+  - The size of the array is incremented to `1`.
+
+**State after insertion:**
+- `arr[] = {10}`
+- `size = 1`
+
+---
+
+#### **Step 3: Insert 20 at index 1**
+- Before Insertion:
+  - `arr[] = {10}`
+  - `size = 1`
+- Operation: Insert **20** at index **1**.
+  - The array is updated to: `arr[] = {10, 20}`.
+  - The size of the array is incremented to `2`.
+
+**State after insertion:**
+- `arr[] = {10, 20}`
+- `size = 2`
+
+---
+
+#### **Step 4: Insert 30 at index 2**
+- Before Insertion:
+  - `arr[] = {10, 20}`
+  - `size = 2`
+- Operation: Insert **30** at index **2**.
+  - The array is updated to: `arr[] = {10, 20, 30}`.
+  - The size of the array is incremented to `3`.
+
+**State after insertion:**
+- `arr[] = {10, 20, 30}`
+- `size = 3`
+
+---
+
+#### **Step 5: Delete element at index 1**
+- Before Deletion:
+  - `arr[] = {10, 20, 30}`
+  - `size = 3`
+- Operation: Delete the element at index **1**.
+  - Element `20` is removed.
+  - The elements are shifted left: `arr[] = {10, 30}`.
+  - The size of the array is decremented to `2`.
+
+**State after deletion:**
+- `arr[] = {10, 30}`
+- `size = 2`
+
+---
+
+#### **Step 6: Retrieve element at index 1**
+- The array is now: `arr[] = {10, 30}`
+- Operation: Retrieve the element at index **1**.
+  - The element at index 1 is **30**.
+
+---
+
+### Final Output:
+- The program prints: **Element at index 1 is 30**.
+
 
 # Task 7:Binary search 
+```cpp
+#include <iostream>
+using namespace std;
+
+// Function to perform binary search
+int binarySearch(int arr[], int low, int high, int target) {
+    while (low <= high) {
+        int mid = low + (high - low) / 2;
+
+        // Check if target is present at mid
+        if (arr[mid] == target)
+            return mid;
+
+        // If target is greater, ignore the left half
+        if (arr[mid] < target)
+            low = mid + 1;
+        // If target is smaller, ignore the right half
+        else
+            high = mid - 1;
+    }
+
+    // If the element is not found, return -1
+    return -1;
+}
+
+int main() {
+    int n, target;
+
+    // Input the number of elements in the array
+    cout << "Enter the number of elements: ";
+    cin >> n;
+
+    int arr[n];
+
+    // Input the array elements (sorted)
+    cout << "Enter the sorted elements: " << endl;
+    for (int i = 0; i < n; i++) {
+        cin >> arr[i];
+    }
+
+    // Input the target value to search for
+    cout << "Enter the value to search: ";
+    cin >> target;
+
+    // Perform binary search
+    int result = binarySearch(arr, 0, n - 1, target);
+
+    // Output the result
+    if (result != -1) {
+        cout << "Element found at index " << result << endl;
+    } else {
+        cout << "Element not found in the array" << endl;
+    }
+
+    return 0;
+}
+
+```
+## Dry Run: Binary Search in C++
+
+### Problem:
+We are performing a binary search to find a target element in a **sorted** array. The program will return the index of the target element if found, and `-1` if the element is not present.
+
+---
+
+### Input:
+- Suppose the user inputs an array of 6 integers: **{5, 10, 15, 20, 25, 30}**.
+- The target element to search is: **20**.
+
+---
+
+### Dry Run:
+
+#### **Step 1: Initialization**
+- The program prompts the user to enter the number of elements, say `n = 6`.
+- A sorted array `arr[]` of size 6 is created.
+
+**State after initialization:**
+- `arr[] = {5, 10, 15, 20, 25, 30}`
+- `low = 0`
+- `high = 5`
+- `target = 20`
+
+---
+
+#### **Step 2: Perform Binary Search**
+
+#### **Iteration 1:**
+- **low = 0**, **high = 5**.
+- Calculate `mid = low + (high - low) / 2 = 2`.
+- Compare `arr[2] = 15` with `target = 20`.
+- Since `20 > 15`, the target must be in the right half.
+- Update `low = mid + 1 = 3`.
+
+**State after iteration 1:**
+- `low = 3`
+- `high = 5`
+
+---
+
+#### **Iteration 2:**
+- **low = 3**, **high = 5**.
+- Calculate `mid = low + (high - low) / 2 = 4`.
+- Compare `arr[4] = 25` with `target = 20`.
+- Since `20 < 25`, the target must be in the left half.
+- Update `high = mid - 1 = 3`.
+
+**State after iteration 2:**
+- `low = 3`
+- `high = 3`
+
+---
+
+#### **Iteration 3:**
+- **low = 3**, **high = 3**.
+- Calculate `mid = low + (high - low) / 2 = 3`.
+- Compare `arr[3] = 20` with `target = 20`.
+- The target is found at index `3`.
+
+---
+
+### Final Output:
+- The program outputs: **"Element found at index 3"**.
+
+---
+
+### Example 2: Target Not Found
+
+#### **Input:**
+- Array: `{5, 10, 15, 20, 25, 30}`
+- Target: `40`
+
+#### **Step 1: Initialization**
+- `arr[] = {5, 10, 15, 20, 25, 30}`
+- `low = 0`
+- `high = 5`
+- `target = 40`
+
+---
+
+#### **Iteration 1:**
+- **low = 0**, **high = 5**.
+- Calculate `mid = 2`.
+- Compare `arr[2] = 15` with `target = 40`.
+- Since `40 > 15`, update `low = mid + 1 = 3`.
+
+---
+
+#### **Iteration 2:**
+- **low = 3**, **high = 5**.
+- Calculate `mid = 4`.
+- Compare `arr[4] = 25` with `target = 40`.
+- Since `40 > 25`, update `low = mid + 1 = 5`.
+
+---
+
+#### **Iteration 3:**
+- **low = 5**, **high = 5**.
+- Calculate `mid = 5`.
+- Compare `arr[5] = 30` with `target = 40`.
+- Since `40 > 30`, update `low = mid + 1 = 6`.
+
+---
+
+Since `low > high`, the target is not found in the array.
+
+---
+
+### Final Output:
+- The program outputs: **"Element not found in the array"**.
+
 
 
 
