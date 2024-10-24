@@ -73,22 +73,15 @@ In each pass, Bubble Sort compares adjacent elements in the array. After each pa
 ## Total Number of Comparisons
 To compute the total number of comparisons made by Bubble Sort, we sum the comparisons for each pass:
 
-\[
-\text{Total comparisons} = (n-1) + (n-2) + (n-3) + \dots + 1
-\]
+Total comparisons = (n-1) + (n-2) + (n-3) + ... + 1
 
-This is the sum of the first \(n-1\) integers, which is a well-known formula for the sum of an arithmetic series:
+This is the sum of the first (n-1) integers, which is a well-known formula for the sum of an arithmetic series:
 
-\[
-S = \frac{(n-1) \times n}{2}
-\]
+S = [(n-1) * n] / 2
 
 Simplifying the formula:
 
-\[
-S = \frac{n^2 - n}{2}
-\]
-
+S = (n^2 - n) / 2
 ## Time Complexity Derivation
 The dominant term in this expression is \(n^2\), because as **n** becomes large, \(n^2\) grows much faster than **n**. Therefore, the time complexity is primarily determined by \(n^2\).
 
