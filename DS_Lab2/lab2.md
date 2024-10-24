@@ -39,6 +39,26 @@ int main() {
 }
 ```
 
+# Explanation of the Code: `double average = static_cast<double>(sum) / size;`
+
+The line `double average = static_cast<double>(sum) / size;` is performing a type conversion and calculating the average of a sum of values. Here's the breakdown:
+
+### 1. `static_cast<double>(sum)`:
+- This converts the variable `sum` (which is likely an integer) to a `double`. 
+- `static_cast` is a C++ keyword used for explicit type conversion (casting). In this case, it ensures that the division is done in floating-point arithmetic rather than integer division.
+
+### 2. `sum / size`:
+- After converting `sum` to a `double`, it is divided by `size` (which is presumably the number of elements in the collection, such as an array or list).
+- Since one of the operands (`sum`) is now a `double`, the division will be floating-point division, ensuring a precise result (including fractional values).
+
+### 3. `double average = ...`:
+- The result of the division is stored in the variable `average`, which is of type `double`. This variable will hold the average as a floating-point number.
+
+### Example:
+If `sum = 9` and `size = 2`, the result of `sum / size` would normally be `4` (integer division). But with `static_cast<double>(sum)`, the division becomes `9.0 / 2`, which results in `4.5`. This value is then stored in the `double` variable `average`.
+
+
+
 # Task 2: Find Largest and Smallest in an Array
 
 ```cpp
