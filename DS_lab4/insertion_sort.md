@@ -58,27 +58,6 @@ Insertion Sort has different complexities for best, average, and worst cases:
 
 Let’s analyze the complexity with a dry run.
 
-### Example Array: `[5, 2, 4, 6, 1, 3]`
-
-#### Detailed Dry Run with Time Complexity
-
-| Pass | Key | Comparisons | Shifts | Array State                    |
-|------|-----|-------------|--------|--------------------------------|
-| 1    | 2   | 1           | 1      | `[2, 5, 4, 6, 1, 3]`           |
-| 2    | 4   | 1           | 0      | `[2, 4, 5, 6, 1, 3]`           |
-| 3    | 6   | 1           | 0      | `[2, 4, 5, 6, 1, 3]`           |
-| 4    | 1   | 4           | 4      | `[1, 2, 4, 5, 6, 3]`           |
-| 5    | 3   | 3           | 3      | `[1, 2, 3, 4, 5, 6]`           |
-
-#### Total Comparisons and Shifts
-The total number of comparisons and shifts depends on how unsorted the array is:
-
-- **Comparisons**: Sum of comparisons across all passes.
-- **Shifts**: Each comparison that finds an out-of-place element results in a shift.
-# Time Complexity Derivation for Insertion Sort
-
----
-
 ### Basic Idea of Insertion Sort
 Insertion Sort builds a sorted portion of the array one element at a time by shifting elements as necessary to insert the current element in the correct position within the sorted portion.
 
@@ -133,9 +112,6 @@ The quadratic time complexity of Insertion Sort arises from the nested structure
 
 ---
 
-### Advantages of Insertion Sort
-
-Unlike Selection Sort, Insertion Sort is adaptive. It performs well for nearly sorted or small datasets, making it a good choice in specific cases. The number of shifts is minimized compared to other quadratic algorithms, which can be useful when data is close to sorted.
 
 ### Why Insertion Sort is Inefficient for Large Datasets
 
