@@ -100,21 +100,17 @@ The number of comparisons in each pass depends on the sorted portion. In the wor
 
 In the worst-case scenario, where the array is sorted in reverse order, each element must be shifted `i` times to reach the correct position. Therefore, the total number of comparisons and shifts can be calculated as:
 
-\[
+
 \text{Total comparisons (worst case)} = 1 + 2 + 3 + \dots + (n - 1)
-\]
 
 Using the formula for the sum of an arithmetic series:
 
-\[
-S = \frac{(n-1) \cdot n}{2}
-\]
+S = (n-1)n/2
 
 Simplifying the formula:
 
-\[
-S = \frac{n^2 - n}{2}
-\]
+S = n^2 - n/2
+
 
 Thus, the worst-case time complexity is determined by the dominant term, which is \( O(n^2) \).
 
