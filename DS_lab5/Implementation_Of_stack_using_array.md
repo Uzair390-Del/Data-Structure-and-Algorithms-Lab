@@ -191,39 +191,18 @@ int main() {
 ---
 
 ## Applications of Stacks
-1. **Expression Evaluation and Conversion**:
-   - Convert infix to postfix or prefix expressions using a stack.
-   - Evaluate postfix expressions.
-
-2. **Backtracking**:
+1. **Backtracking**:
    - Used in algorithms for solving mazes or navigating browser history.
 
-3. **Undo/Redo Operations**:
+2. **Undo/Redo Operations**:
    - In text editors, operations are stored in stacks to undo/redo them.
 
-4. **Balanced Parentheses**:
+3. **Balanced Parentheses**:
    - A stack can check whether a given expression has balanced parentheses.
 
-5. **Reverse a String**:
+4. **Reverse a String**:
    - Push each character of a string onto a stack, then pop them to reverse it.
 
 ---
 
-## Exercises
-1. Modify the stack implementation to allow dynamic resizing.
-2. Implement a program to check balanced parentheses in an expression.
-3. Write a function to simulate browser history using stacks.
 
----
-
-## Assignment Questions
-1. Explain the differences between LIFO and FIFO data structures.
-2. Implement a program to evaluate a postfix expression.
-3. Discuss three real-world applications of stacks.
-
----
-
-## Resources
-- [GeeksforGeeks: Stack Data Structure](https://www.geeksforgeeks.org/stack-data-structure/)
-- [C++ Documentation](https://cplusplus.com/)
-- [YouTube: Stacks Explained](https://www.youtube.com/)
