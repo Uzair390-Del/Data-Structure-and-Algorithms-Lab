@@ -64,6 +64,7 @@ void insertAtPosition(Node*& head, int position, int value);
 void deleteNode(Node*& head, int value);
 void traverseList(Node* head);
 void sortList(Node*& head);
+```
 
 ## 7. Detailed Implementation
 
