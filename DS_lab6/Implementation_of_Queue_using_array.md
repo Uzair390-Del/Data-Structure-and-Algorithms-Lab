@@ -458,7 +458,7 @@ This dry run illustrates how the circular queue operates, demonstrating the effe
 
 ## C++ Implementation
 
-cpp
+```cpp
 #include <iostream>
 #define SIZE 5
 
@@ -561,26 +561,4 @@ int main() {
     q.peek();
     return 0;
 }
-
-# Dry Run
-
-## Initial State
-front = -1, rear = -1, Queue = [ _, _, _, _, _ ]
-
-### Operation: enqueue(10)
-- Increment rear: rear = 0
-- Set arr[rear] = 10
-- front = 0
-- **Queue**: [ 10, _, _, _, _ ]
-
-### Operation: enqueue(20)
-- Increment rear: rear = 1
-- Set arr[rear] = 20
-- **Queue**: [ 10, 20, _, _, _ ]
-
-### Operation: dequeue()
-- Return arr[front]: 10
-- Increment front: front = 1
-- **Queue**: [ _, 20, _, _, _ ]
-
----
+```
