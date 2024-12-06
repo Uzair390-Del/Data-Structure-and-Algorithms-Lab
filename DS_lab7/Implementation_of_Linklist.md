@@ -5,15 +5,9 @@ A **Singly Linked List** is a linear data structure where each node contains:
 - **Data**: Stores the value.
 - **Next Pointer**: Points to the next node in the list.
 - The last node's `next` pointer points to `NULL`.
+- The first node in a linked list is typically called the **head**, and it serves as the starting point for traversing the list. The last node's reference points to `NULL`, indicating the end of the list.
 
-## 2. What is a Linked List?
 A linked list is a linear data structure in which elements, called nodes, are connected together through a set of pointers. Unlike arrays, which store elements in contiguous memory locations, linked lists allow elements to be scattered throughout memory. Each node in a linked list contains two components:
-
-- **Data**: This component holds the actual value or data that needs to be stored.
-- **Pointer/Reference**: This component points to the next node in the list, creating a link between nodes.
-
-The first node in a linked list is typically called the **head**, and it serves as the starting point for traversing the list. The last node's reference points to `NULL`, indicating the end of the list.
-
 ### Linked List Diagram
 ![Linked List Diagram](./image.png)
 
@@ -53,10 +47,7 @@ Combine two linked lists by updating the last node of the first list to point to
 ## 5. Practical Applications of Linked Lists
 - **Dynamic Memory Allocation**: Used in programming languages for efficient memory management.
 - **Stacks and Queues**: Underlying data structure for implementing these concepts.
-- **Playlists**: Manage sequences of media files.
 - **Undo/Redo Functionality**: Used in software for reversing user actions.
-- **Symbol Tables in Compilers**: Store variable and function information in programming languages.
-- **Hash Tables**: Resolve collisions in certain hash table implementations.
 
 ## 6. Conclusion
 Linked lists are a fundamental data structure with a wide range of applications. Understanding their operations and practical uses is essential for efficient programming.
