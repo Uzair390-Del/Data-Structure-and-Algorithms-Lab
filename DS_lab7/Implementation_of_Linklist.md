@@ -88,7 +88,7 @@ Linked lists are a fundamental data structure with a wide range of applications.
 | **Deletion**          | O(1) at beginning, O(n) at position |
 | **Traversal**         | O(n)                           |
 | **Search**            | O(n)                           |
-| **Sorting**           | O(n²) (bubble sort)            |
+
 
 ---
 
