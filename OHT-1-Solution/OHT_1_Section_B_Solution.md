@@ -1,9 +1,9 @@
 # **OHT Exam Solutions (Section B)**
 
 **Class Name:**  BSCS 3B
-**Subject Name:** Data Structures & Algorithms  
+**Subject Name:** Data Structures  
 **Lab Instructor:** Uzair Hassan  
-**OHT Number:** 02  
+**OHT Number:** OHT-I 
 
 ---
 

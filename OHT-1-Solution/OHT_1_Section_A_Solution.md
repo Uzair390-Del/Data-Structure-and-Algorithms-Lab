@@ -3,7 +3,7 @@
 **Class Name:** BSCS 3A
 **Subject Name:**  Data Structures  
 **Lab Instructor:** Uzair Hassan  
-**OHT Number:** 01  
+**OHT Number:** OHT-1
 
 ## **Question No. 01**
 
