@@ -230,3 +230,252 @@ void deleteNode(Node*& head, int value) {
   2. Update `temp->next` to skip `20` and point to `NULL`.
   3. Delete the node `20`.
 - **Result**: `10 -> NULL`
+
+### Traverse and Display a Linked List
+
+#### Algorithm:
+1. Initialize a temporary pointer (`temp`) to the head of the list.
+2. Traverse the list:
+   - While `temp` is not `NULL`:
+     - Print the `data` of the current node.
+     - Move to the next node.
+3. After traversal, print `"NULL"` to indicate the end of the list.
+
+#### Code with Line-by-Line Explanation:
+```cpp
+void traverseList(Node* head) {
+    Node* temp = head;               // Step 1: Initialize temp to the head of the list
+    while (temp != NULL) {           // Step 2: Traverse the list until temp is NULL
+        cout << temp->data << " -> "; // Step 3: Print the data of the current node
+        temp = temp->next;           // Step 4: Move to the next node
+    }
+    cout << "NULL" << endl;          // Step 5: Print NULL to mark the end of the list
+}
+```
+
+#### Dry Run:
+
+##### Initial List:  
+`10 -> 20 -> 30 -> NULL`  
+**Input:** `traverseList(head)`
+
+**Steps:**  
+1. **Initialization:**
+   - `temp = head`, pointing to the first node (`10`).
+
+2. **First Iteration:**
+   - Print `10 ->`.
+   - Move `temp` to `temp->next` (node `20`).
+
+3. **Second Iteration:**
+   - Print `20 ->`.
+   - Move `temp` to `temp->next` (node `30`).
+
+4. **Third Iteration:**
+   - Print `30 ->`.
+   - Move `temp` to `temp->next` (`NULL`).
+
+5. **Termination:**
+   - `temp` is `NULL`, print `"NULL"`.
+
+**Result:**  
+Output: `10 -> 20 -> 30 -> NULL`
+
+This function effectively traverses the entire linked list, displaying each node's value in order, followed by `"NULL"` to signify the end.
+###  Sort the Linked List
+
+#### Algorithm:
+1. Check if the list is empty or contains only one node. If true, exit the function as no sorting is needed.
+2. Use two nested loops to compare and sort the list:
+   - Outer loop (`i`): Traverses each node of the list up to the second last node.
+   - Inner loop (`j`): Traverses from the node after `i` to the end of the list.
+3. If the `data` of the `i` node is greater than the `data` of the `j` node:
+   - Swap their values.
+
+#### Code with Line-by-Line Explanation:
+```cpp
+void sortList(Node*& head) {
+    if (head == NULL || head->next == NULL) return; // Step 1: Check if the list is empty or has one node
+    for (Node* i = head; i->next != NULL; i = i->next) { // Step 2: Outer loop traverses each node
+        for (Node* j = i->next; j != NULL; j = j->next) { // Step 3: Inner loop traverses nodes after i
+            if (i->data > j->data) { // Step 4: Compare the data of i and j
+                swap(i->data, j->data); // Step 5: Swap the data if i > j
+            }
+        }
+    }
+}
+```
+
+#### Dry Run:
+
+##### Initial List:
+`30 -> 10 -> 20 -> NULL`  
+**Input:** `sortList(head)`
+
+**Steps:**
+1. **Initialization:**
+   - `i = head` (node `30`).
+   - `j = i->next` (node `10`).
+
+2. **First Pass (Outer Loop `i = 30`):**
+   - Compare `30` and `10`:
+     - `30 > 10`, so swap. List becomes: `10 -> 30 -> 20 -> NULL`.
+   - Compare `30` and `20`:
+     - `30 > 20`, so swap. List becomes: `10 -> 20 -> 30 -> NULL`.
+
+3. **Second Pass (Outer Loop `i = 20`):**
+   - Compare `20` and `30`:
+     - No swap needed as `20 < 30`.
+
+4. **Termination:**
+   - Outer loop ends as `i` reaches the second last node.
+
+**Result:**
+Output: `10 -> 20 -> 30 -> NULL`
+
+This function sorts the linked list in ascending order using a basic bubble sort algorithm by swapping node data.
+
+```cpp
+#include <iostream>
+using namespace std;
+
+struct Node {
+    int data;        // Stores data
+    Node* next;      // Pointer to the next node
+};
+
+// Function declarations
+void insertAtBeginning(Node*& head, int value);
+void insertAtEnd(Node*& head, int value);
+void insertAtPosition(Node*& head, int position, int value);
+void deleteNode(Node*& head, int value);
+void traverseList(Node* head);
+void sortList(Node*& head);
+
+// Function implementations
+
+// Insert at the beginning
+void insertAtBeginning(Node*& head, int value) {
+    Node* newNode = new Node();
+    newNode->data = value;
+    newNode->next = head;
+    head = newNode;
+}
+
+// Insert at the end
+void insertAtEnd(Node*& head, int value) {
+    Node* newNode = new Node();
+    newNode->data = value;
+    newNode->next = NULL;
+    if (head == NULL) {
+        head = newNode;
+    } else {
+        Node* temp = head;
+        while (temp->next != NULL) {
+            temp = temp->next;
+        }
+        temp->next = newNode;
+    }
+}
+
+// Insert at a specific position
+void insertAtPosition(Node*& head, int position, int value) {
+    Node* newNode = new Node();
+    newNode->data = value;
+    if (position == 1) {
+        newNode->next = head;
+        head = newNode;
+        return;
+    }
+    Node* temp = head;
+    for (int i = 1; i < position - 1 && temp != NULL; ++i) {
+        temp = temp->next;
+    }
+    if (temp == NULL) {
+        cout << "Position out of bounds!" << endl;
+        delete newNode;
+        return;
+    }
+    newNode->next = temp->next;
+    temp->next = newNode;
+}
+
+// Delete a node with a specific value
+void deleteNode(Node*& head, int value) {
+    if (head == NULL) {
+        cout << "List is empty!" << endl;
+        return;
+    }
+    if (head->data == value) {
+        Node* temp = head;
+        head = head->next;
+        delete temp;
+        return;
+    }
+    Node* temp = head;
+    while (temp->next != NULL && temp->next->data != value) {
+        temp = temp->next;
+    }
+    if (temp->next == NULL) {
+        cout << "Value not found!" << endl;
+    } else {
+        Node* delNode = temp->next;
+        temp->next = delNode->next;
+        delete delNode;
+    }
+}
+
+// Traverse and display the list
+void traverseList(Node* head) {
+    Node* temp = head;
+    while (temp != NULL) {
+        cout << temp->data << " -> ";
+        temp = temp->next;
+    }
+    cout << "NULL" << endl;
+}
+
+// Sort the list
+void sortList(Node*& head) {
+    if (head == NULL || head->next == NULL) return;
+    for (Node* i = head; i->next != NULL; i = i->next) {
+        for (Node* j = i->next; j != NULL; j = j->next) {
+            if (i->data > j->data) {
+                swap(i->data, j->data);
+            }
+        }
+    }
+}
+
+// Main function
+int main() {
+    Node* head = NULL;
+
+    // Test insert at beginning
+    insertAtBeginning(head, 10);
+    insertAtBeginning(head, 20);
+    traverseList(head);  // Output: 20 -> 10 -> NULL
+
+    // Test insert at end
+    insertAtEnd(head, 30);
+    insertAtEnd(head, 40);
+    traverseList(head);  // Output: 20 -> 10 -> 30 -> 40 -> NULL
+
+    // Test insert at position
+    insertAtPosition(head, 3, 25);
+    traverseList(head);  // Output: 20 -> 10 -> 25 -> 30 -> 40 -> NULL
+
+    // Test delete node
+    deleteNode(head, 10);
+    traverseList(head);  // Output: 20 -> 25 -> 30 -> 40 -> NULL
+
+    deleteNode(head, 50); // Value not found!
+
+    // Test sorting
+    sortList(head);
+    traverseList(head);  // Output: 20 -> 25 -> 30 -> 40 -> NULL
+
+    return 0;
+}
+
+```
