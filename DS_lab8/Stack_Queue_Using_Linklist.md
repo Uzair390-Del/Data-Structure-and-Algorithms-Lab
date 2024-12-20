@@ -6,6 +6,10 @@ A **stack** is a linear data structure that follows the **LIFO (Last In, First O
 - **Pop**: Remove the top element.
 - **Peek/Top**: View the top element without removing it.
 - **isEmpty**: Check if the stack is empty.
+### Stack using LinkList Diagram
+![Stack using Linked List Diagram](./stack.png)
+![Stack using Linked List Diagram](./stack01.png)
+![Stack using Linked List Diagram](./stack02.png)
 
 ## Why Use a Linked List for a Stack?
 A linked list provides dynamic memory allocation, meaning the stack size can grow or shrink as needed without a predefined limit. This is particularly useful when the maximum size of the stack is unknown.
