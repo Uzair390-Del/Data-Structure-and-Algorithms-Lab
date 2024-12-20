@@ -246,12 +246,11 @@ Stack elements (top to bottom): 20 10
 ---
 
 ## Applications of Stack
-1. **Expression Evaluation and Conversion**: Converting infix to postfix/prefix and evaluating postfix expressions.
-2. **Function Call Management**: Used in recursion to store function calls.
-3. **Undo/Redo Mechanism**: Track user actions for undo/redo operations.
-4. **Balanced Parentheses Checking**: Validate expressions with balanced symbols.
-5. **Browser Navigation**: Maintain back and forward navigation history.
-6. **Depth-First Search (DFS)**: Used in graph traversal algorithms.
+1. **Function Call Management**: Used in recursion to store function calls.
+2. **Undo/Redo Mechanism**: Track user actions for undo/redo operations.
+3. **Balanced Parentheses Checking**: Validate expressions with balanced symbols.
+4. **Browser Navigation**: Maintain back and forward navigation history.
+
 
 ---
 
