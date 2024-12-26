@@ -66,6 +66,7 @@ Each node contains data, a pointer to the next node, and a pointer to the previo
 2. Assign the value to the node's data.
 3. Set `newNode->next` to the current head.
 4. Update the head to point to `newNode`.
+![ Insertion in Doubly LinkedList ](./image_3.png)
 
 **Code with Line-by-Line Explanation:**
 
