@@ -25,9 +25,9 @@ Each node contains:
 ## **Common Operations in CLL**
 a. **Insertion**
    - At the beginning
-   ![Insert at beginning in Circular Linklist](circular1.png)
+   ![Insert at beginning in Circular Linklist](circular2.png)
    - At the end
-   ![Insert at end in Circular Linlist](circular2.png)
+   ![Insert at end in Circular Linlist](circular3.png)
    - After a specific node
    ![Insert at specifin position in Circular Linlist](circular4.png)
 
