@@ -25,7 +25,7 @@ Each node contains:
 ## **Common Operations in CLL**
 a. **Insertion**
    - At the beginning
-   
+
    ![Insert at beginning in Circular Linklist](circular2.png)
 
    - At the end
@@ -232,6 +232,48 @@ void insertAtEnd(Node*& head, int value) {
     }
 }
 
+// Delete the first node
+void deleteAtStart(Node*& head) {
+    if (head == nullptr) { // Empty list
+        cout << "List is empty!\n";
+        return;
+    }
+    Node* temp = head;
+    if (head->next == head) { // Single node in the list
+        delete head;
+        head = nullptr;
+    } else {
+        Node* tail = head;
+        while (tail->next != head) { // Traverse to the last node
+            tail = tail->next;
+        }
+        tail->next = head->next; // Update last node's next pointer
+        head = head->next;       // Move head pointer to next node
+        delete temp;
+    }
+}
+
+// Delete the last node
+void deleteAtEnd(Node*& head) {
+    if (head == nullptr) { // Empty list
+        cout << "List is empty!\n";
+        return;
+    }
+    Node* temp = head;
+    if (head->next == head) { // Single node in the list
+        delete head;
+        head = nullptr;
+    } else {
+        Node* prev = nullptr;
+        while (temp->next != head) { // Traverse to the last node
+            prev = temp;
+            temp = temp->next;
+        }
+        prev->next = head; // Update second-last node's next pointer
+        delete temp;
+    }
+}
+
 // Delete a node by value
 void deleteNode(Node*& head, int value) {
     if (head == nullptr) { // Empty list
@@ -243,19 +285,8 @@ void deleteNode(Node*& head, int value) {
     do {
         if (temp->data == value) {
             if (temp == head) { // Deleting head node
-                Node* tail = head;
-                while (tail->next != head) { // Traverse to the last node
-                    tail = tail->next;
-                }
-                if (tail == head) { // Only one node in the list
-                    delete head;
-                    head = nullptr;
-                } else {
-                    tail->next = head->next;
-                    delete head;
-                    head = tail->next;
-                }
-            } else { // Deleting non-head node
+                deleteAtStart(head);
+            } else {
                 prev->next = temp->next;
                 delete temp;
             }
@@ -302,20 +333,25 @@ int main() {
     traverse(head);
 
     // Delete head
-    cout << "Deleting 10 (head)...\n";
-    deleteNode(head, 10);
+    cout << "Deleting head...\n";
+    deleteAtStart(head);
+    cout << "After Deletion: ";
+    traverse(head);
+
+    // Delete tail
+    cout << "Deleting tail...\n";
+    deleteAtEnd(head);
     cout << "After Deletion: ";
     traverse(head);
 
     // Delete remaining elements
     cout << "Deleting all remaining elements...\n";
-    deleteNode(head, 30);
-    deleteNode(head, 40);
-    cout << "After Deletion: ";
+    deleteAtEnd(head);
     traverse(head);
 
     return 0;
 }
+
 ```
 
 
