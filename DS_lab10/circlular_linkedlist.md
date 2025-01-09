@@ -25,19 +25,26 @@ Each node contains:
 ## **Common Operations in CLL**
 a. **Insertion**
    - At the beginning
+   
    ![Insert at beginning in Circular Linklist](circular2.png)
+
    - At the end
+
    ![Insert at end in Circular Linlist](circular3.png)
+
    - After a specific node
+
    ![Insert at specifin position in Circular Linlist](circular4.png)
 
 
 b. **Deletion**
    - From the beginning
+
    ![delete at beginning in Circular Linklist](circular5.png)
+
    - From the end
+
    ![delete at end in Circular Linklist](circular6.png)
-   - A specific node
 
 c. **Traversal**
    - Print all nodes starting from the head.
