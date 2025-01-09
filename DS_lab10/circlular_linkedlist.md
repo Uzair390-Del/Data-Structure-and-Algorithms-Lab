@@ -1,14 +1,14 @@
-Lab: Circular Linked List in C++
+# Lab: Circular Linked List in C++
 
-1. **Introduction**
+## Introduction
 A Circular Linked List (CLL) is a data structure where the last node of the list points back to the first node, forming a circle. Unlike a singly or doubly linked list, it has no definitive start or end, which allows continuous traversal through the list.
 
-**Circular Linked List Representation**
+## Circular Linked List Representation**
 ```
 Head -> Node1 -> Node2 -> ... -> NodeN -> Head
 ```
 
-2. **Advantages of CLL**
+## **Advantages of CLL**
 - Continuous Traversal: Useful for buffering or real-time processing applications like audio or video.
 - Efficient Memory Usage: No need for extra termination pointers.
 - Simplifies Queue Implementations: Efficient management of enqueue and dequeue operations.
