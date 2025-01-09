@@ -9,11 +9,6 @@ Head -> Node1 -> Node2 -> ... -> NodeN -> Head
 ```
 ![Node in Circular Linklist](circular1.png)
 
-## **Advantages of CLL**
-- Continuous Traversal: Useful for buffering or real-time processing applications like audio or video.
-- Efficient Memory Usage: No need for extra termination pointers.
-- Simplifies Queue Implementations: Efficient management of enqueue and dequeue operations.
-
 ## **Node Structure in C++**
 The structure of a node in a circular linked list can be defined as:
 ```cpp
