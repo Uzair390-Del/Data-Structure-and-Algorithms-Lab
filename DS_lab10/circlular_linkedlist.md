@@ -3,7 +3,7 @@
 ## Introduction
 A Circular Linked List (CLL) is a data structure where the last node of the list points back to the first node, forming a circle. Unlike a singly or doubly linked list, it has no definitive start or end, which allows continuous traversal through the list.
 
-## Circular Linked List Representation**
+### Circular Linked List Representation**
 ```
 Head -> Node1 -> Node2 -> ... -> NodeN -> Head
 ```
@@ -13,7 +13,7 @@ Head -> Node1 -> Node2 -> ... -> NodeN -> Head
 - Efficient Memory Usage: No need for extra termination pointers.
 - Simplifies Queue Implementations: Efficient management of enqueue and dequeue operations.
 
-3. **Node Structure in C++**
+## **Node Structure in C++**
 The structure of a node in a circular linked list can be defined as:
 ```cpp
 struct Node {
@@ -26,7 +26,7 @@ Each node contains:
 - `data`: The value stored in the node.
 - `next`: A pointer to the next node in the list.
 
-4. **Common Operations in CLL**
+## **Common Operations in CLL**
 a. **Insertion**
    - At the beginning
    - At the end
@@ -43,7 +43,7 @@ c. **Traversal**
 d. **Search**
    - Check if a value exists in the list.
 
-5. **Code Implementation in C++ with Dry Runs and Explanations**
+## **Code Implementation in C++ with Dry Runs and Explanations**
 
 ### 5.1 Insert at Beginning
 **Algorithm:**
@@ -164,19 +164,19 @@ void traverse(Node* head) {
 }
 ```
 
-6. **Applications**
+##  **Applications**
 - Task Scheduling: Round-robin algorithms.
 - Memory Management: Buffer management in operating systems.
 - Multiplayer Games: Managing players in a circular turn system.
 
-7. **Time Complexity Analysis**
+##  **Time Complexity Analysis**
 | Operation | Time Complexity |
 |-----------|-----------------|
 | Insertion | O(n)           |
 | Deletion  | O(n)           |
 | Traversal | O(n)           |
 
-8. **Conclusion**
+## **Conclusion**
 Circular Linked Lists provide an efficient way to manage circular processes or real-time applications. Their continuous traversal property makes them ideal for many specialized scenarios.
 
 
