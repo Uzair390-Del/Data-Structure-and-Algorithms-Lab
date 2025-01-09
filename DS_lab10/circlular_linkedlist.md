@@ -179,4 +179,134 @@ void traverse(Node* head) {
 ## **Conclusion**
 Circular Linked Lists provide an efficient way to manage circular processes or real-time applications. Their continuous traversal property makes them ideal for many specialized scenarios.
 
+```cpp
+#include <iostream>
+using namespace std;
+
+// Node structure
+struct Node {
+    int data;
+    Node* next;
+    Node(int value) : data(value), next(nullptr) {}
+};
+
+// Insert at the beginning
+void insertAtBeginning(Node*& head, int value) {
+    Node* newNode = new Node(value);
+    if (head == nullptr) { // Empty list
+        newNode->next = newNode;
+        head = newNode;
+    } else {
+        Node* temp = head;
+        while (temp->next != head) { // Traverse to the last node
+            temp = temp->next;
+        }
+        temp->next = newNode;       // Update last node's next pointer
+        newNode->next = head;       // Point new node to the head
+        head = newNode;             // Update head to the new node
+    }
+}
+
+// Insert at the end
+void insertAtEnd(Node*& head, int value) {
+    Node* newNode = new Node(value);
+    if (head == nullptr) { // Empty list
+        newNode->next = newNode;
+        head = newNode;
+    } else {
+        Node* temp = head;
+        while (temp->next != head) { // Traverse to the last node
+            temp = temp->next;
+        }
+        temp->next = newNode; // Link last node to the new node
+        newNode->next = head; // Point new node to the head
+    }
+}
+
+// Delete a node by value
+void deleteNode(Node*& head, int value) {
+    if (head == nullptr) { // Empty list
+        cout << "List is empty!\n";
+        return;
+    }
+    Node* temp = head;
+    Node* prev = nullptr;
+    do {
+        if (temp->data == value) {
+            if (temp == head) { // Deleting head node
+                Node* tail = head;
+                while (tail->next != head) { // Traverse to the last node
+                    tail = tail->next;
+                }
+                if (tail == head) { // Only one node in the list
+                    delete head;
+                    head = nullptr;
+                } else {
+                    tail->next = head->next;
+                    delete head;
+                    head = tail->next;
+                }
+            } else { // Deleting non-head node
+                prev->next = temp->next;
+                delete temp;
+            }
+            return;
+        }
+        prev = temp;
+        temp = temp->next;
+    } while (temp != head);
+    cout << "Value not found!\n";
+}
+
+// Traverse the list
+void traverse(Node* head) {
+    if (head == nullptr) {
+        cout << "List is empty!\n";
+        return;
+    }
+    Node* temp = head;
+    do {
+        cout << temp->data << " -> ";
+        temp = temp->next;
+    } while (temp != head);
+    cout << "(back to head)\n";
+}
+
+// Main function to demonstrate operations
+int main() {
+    Node* head = nullptr;
+
+    // Insert elements
+    insertAtBeginning(head, 10);
+    insertAtBeginning(head, 20);
+    insertAtEnd(head, 30);
+    insertAtEnd(head, 40);
+
+    // Traverse the list
+    cout << "Circular Linked List: ";
+    traverse(head);
+
+    // Delete an element
+    cout << "Deleting 20...\n";
+    deleteNode(head, 20);
+    cout << "After Deletion: ";
+    traverse(head);
+
+    // Delete head
+    cout << "Deleting 10 (head)...\n";
+    deleteNode(head, 10);
+    cout << "After Deletion: ";
+    traverse(head);
+
+    // Delete remaining elements
+    cout << "Deleting all remaining elements...\n";
+    deleteNode(head, 30);
+    deleteNode(head, 40);
+    cout << "After Deletion: ";
+    traverse(head);
+
+    return 0;
+}
+```
+
 
