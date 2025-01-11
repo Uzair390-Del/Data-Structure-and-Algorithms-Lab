@@ -3,7 +3,7 @@
 
 **Instructor: Uzair Hassan**
 
-1. ## Data Structures Overview
+ ## 1. Data Structures Overview
 - Types of data structures
 - Importance and applications of data structures in real-world scenarios
 
